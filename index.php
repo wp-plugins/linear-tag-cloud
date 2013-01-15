@@ -4,7 +4,7 @@ Plugin Name: Linear Tag Cloud
 Plugin URI: http://www.orangedropdesign.com/
 Description: A tag clob with bars and not dimensions.
 Author: Andrea Rufo
-Version: 1.0
+Version: 1.1
 Author URI: http://www.orangedropdesign.com/
 
 */
@@ -34,22 +34,22 @@ class ltc_widget extends WP_Widget{
 		
 		<p>
 		<label for="<?php echo $this->get_field_id( 'number' ); ?>">Max number of tags:</label>
-		<input class="widefat" type="text" id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" value="<?php echo $instance['number']; ?>" />	
+		<input class="widefat" type="number" id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" value="<?php echo $instance['number']; ?>" request />	
 		</p>
 		
 		<p>
 		<label for="<?php echo $this->get_field_id( 'border' ); ?>">Border color:</label>
-		<input class="widefat" type="text" id="<?php echo $this->get_field_id( 'border' ); ?>" name="<?php echo $this->get_field_name( 'border' ); ?>" value="<?php echo $instance['border']; ?>" />	
+		<input class="widefat" type="color" id="<?php echo $this->get_field_id( 'border' ); ?>" name="<?php echo $this->get_field_name( 'border' ); ?>" value="<?php echo $instance['border']; ?>" />	
 		</p>
 		
 		<p>
 		<label for="<?php echo $this->get_field_id( 'background' ); ?>">Background color:</label>
-		<input class="widefat" type="text" id="<?php echo $this->get_field_id( 'background' ); ?>" name="<?php echo $this->get_field_name( 'background' ); ?>" value="<?php echo $instance['background']; ?>" />	
+		<input class="widefat" type="color" id="<?php echo $this->get_field_id( 'background' ); ?>" name="<?php echo $this->get_field_name( 'background' ); ?>" value="<?php echo $instance['background']; ?>" />	
 		</p>
 		
 		<p>
-		<label for="<?php echo $this->get_field_id( 'color' ); ?>">Text color:</label>
-		<input class="widefat" type="text" id="<?php echo $this->get_field_id( 'color' ); ?>" name="<?php echo $this->get_field_name( 'color' ); ?>" value="<?php echo $instance['color']; ?>" />	
+		<label for="<?php echo $this->get_field_id( 'color' ); ?>">Text color (applied on a tag):</label>
+		<input class="widefat" type="color" id="<?php echo $this->get_field_id( 'color' ); ?>" name="<?php echo $this->get_field_name( 'color' ); ?>" value="<?php echo $instance['color']; ?>" />	
 		</p>
             
 		<?php
