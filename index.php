@@ -4,7 +4,7 @@ Plugin Name: Linear Tag Cloud
 Plugin URI: http://www.orangedropdesign.com/
 Description: A tag clob with bars and not dimensions.
 Author: Andrea Rufo
-Version: 0.1
+Version: 1.2
 Author URI: http://www.orangedropdesign.com/
 
 */
