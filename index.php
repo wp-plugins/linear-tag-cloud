@@ -4,7 +4,7 @@ Plugin Name: Linear Tag Cloud
 Plugin URI: http://www.orangedropdesign.com/
 Description: A tag clob with bars and not dimensions.
 Author: Andrea Rufo
-Version: 1.1
+Version: 0.1
 Author URI: http://www.orangedropdesign.com/
 
 */
@@ -34,22 +34,22 @@ class ltc_widget extends WP_Widget{
 		
 		<p>
 		<label for="<?php echo $this->get_field_id( 'number' ); ?>">Max number of tags:</label>
-		<input class="widefat" type="number" id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" value="<?php echo $instance['number']; ?>" request />	
+		<input class="widefat" type="text" id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" value="<?php echo $instance['number']; ?>" />	
 		</p>
 		
 		<p>
 		<label for="<?php echo $this->get_field_id( 'border' ); ?>">Border color:</label>
-		<input class="widefat" type="color" id="<?php echo $this->get_field_id( 'border' ); ?>" name="<?php echo $this->get_field_name( 'border' ); ?>" value="<?php echo $instance['border']; ?>" />	
+		<input class="widefat" type="text" id="<?php echo $this->get_field_id( 'border' ); ?>" name="<?php echo $this->get_field_name( 'border' ); ?>" value="<?php echo $instance['border']; ?>" />	
 		</p>
 		
 		<p>
 		<label for="<?php echo $this->get_field_id( 'background' ); ?>">Background color:</label>
-		<input class="widefat" type="color" id="<?php echo $this->get_field_id( 'background' ); ?>" name="<?php echo $this->get_field_name( 'background' ); ?>" value="<?php echo $instance['background']; ?>" />	
+		<input class="widefat" type="text" id="<?php echo $this->get_field_id( 'background' ); ?>" name="<?php echo $this->get_field_name( 'background' ); ?>" value="<?php echo $instance['background']; ?>" />	
 		</p>
 		
 		<p>
-		<label for="<?php echo $this->get_field_id( 'color' ); ?>">Text color (applied on a tag):</label>
-		<input class="widefat" type="color" id="<?php echo $this->get_field_id( 'color' ); ?>" name="<?php echo $this->get_field_name( 'color' ); ?>" value="<?php echo $instance['color']; ?>" />	
+		<label for="<?php echo $this->get_field_id( 'color' ); ?>">Text color:</label>
+		<input class="widefat" type="text" id="<?php echo $this->get_field_id( 'color' ); ?>" name="<?php echo $this->get_field_name( 'color' ); ?>" value="<?php echo $instance['color']; ?>" />	
 		</p>
             
 		<?php
@@ -102,33 +102,33 @@ class ltc_widget extends WP_Widget{
 		echo $after_widget;
 	}
 	
-	//aggiorna i dati
+	//update the input
 	public function update( $new_instance, $old_instance ){
 		
 		$instance = $old_instance;
-		$instance['title'] = strip_tags( $new_instance['title'] );
-		$instance['number'] = strip_tags( $new_instance['number'] );
-		$instance['border'] = strip_tags( $new_instance['border'] );
-		$instance['background'] = strip_tags( $new_instance['background'] );
-		$instance['color'] = strip_tags( $new_instance['color'] );
+		$instance['title'] 			= strip_tags( $new_instance['title'] );
+		$instance['number'] 		= strip_tags( $new_instance['number'] );
+		$instance['border'] 		= strip_tags( $new_instance['border'] );
+		$instance['background'] 	= strip_tags( $new_instance['background'] );
+		$instance['color'] 			= strip_tags( $new_instance['color'] );
 
 		return $instance;
 	}                     
 }
 
-//includo lo stile del widget
+//add the plugin's css to the page 
 add_action( 'wp_enqueue_scripts', 'ltc_add_my_stylesheet' );
 
 function ltc_add_my_stylesheet() {
-	wp_register_style( 'ltc-style', plugins_url('style.css', __FILE__) );
+	wp_register_style( 'ltc-style', plugins_url('ltc-style.css', __FILE__) );
 	wp_enqueue_style( 'ltc-style' );
 }
 
-// Custom get_tags function to support ignoring tags with less than $minnum posts.
+//custom get_all_tags function to get all tags ordered by count whit $max number of elements
 function get_all_tags($max) {
 	
 	$args = array(
-		 'orderby'	=>	'count', 
+		 'orderby'	=>	'count',
 		 'order'	=>	'DESC',	  
 		 'number'	=>	$max
 	);
@@ -138,10 +138,7 @@ function get_all_tags($max) {
 
 	$tags = array();
 
-	foreach ($alltags as $tag) {
-		//if ($tag->count < $minnum || $tag->count > $maxnum)
-			//continue;
-			
+	foreach ($alltags as $tag){
 		array_push($tags, $tag);
 	}
 
@@ -154,11 +151,11 @@ function get_all_tags($max) {
 	return $tags;
 }
 
-// registro il widget
+// register the widget
+add_action( 'widgets_init', 'ltc_register_widgets' );
+
 function ltc_register_widgets(){
 	register_widget( 'ltc_widget' );
 }
-
-add_action( 'widgets_init', 'ltc_register_widgets' );
 
 ?>
