@@ -4,7 +4,7 @@ Donate link: www.orangedropdesign.com
 Tags: bar chart, tag cloud, percentage, responsive, chart
 Requires at least: 3
 Tested up to: 3.5
-Stable tag: 1
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,7 +24,7 @@ A simple and clean tag cloud with a list of tags in percentual lines. Suitable f
 
 == Frequently asked questions ==
 
-1. Is it possibile to configure it?
+= Is it possibile to configure it? =
 Yes, you can configure max number of tags; background, text and border color of the bars
 
 == Screenshots ==
