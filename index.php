@@ -4,7 +4,7 @@ Plugin Name: Linear Tag Cloud
 Plugin URI: http://www.orangedropdesign.com/
 Description: A tag clob with bars and not dimensions.
 Author: Andrea Rufo
-Version: 1.2
+Version: 1.3
 Author URI: http://www.orangedropdesign.com/
 
 */
@@ -87,8 +87,23 @@ class ltc_widget extends WP_Widget{
 					//lunghezza della barra in percentuale					
 					$lenght = $base * $array['count'];
 					
-					echo '<li style="width:'.$lenght.'%; background:'.$instance['background'].'; border-color:'.$instance['border'].'">
-						<a style="color:'.$instance['color'].'" href="'.home_url().'/?tag='.$array['slug'].'">
+					echo '<li style="width:'.$lenght.'%;';
+					
+					if($instance['background'] != ''){
+						echo ' background:'.$instance['background'].';';
+					}
+					
+					if($instance['border'] != ''){
+						echo ' border-color:'.$instance['border'];
+					}
+					
+					echo'"><a ';
+					
+					if($instance['color'] != ''){
+						echo 'style="color:'.$instance['color'].'" ';
+					}
+					
+					echo 'href="'.home_url().'/?tag='.$array['slug'].'">
 						'.$array['name'].' ('.$array['count'].')
 						</a>
 						</li>';
