@@ -4,7 +4,7 @@ Donate link: www.orangedropdesign.com
 Tags: bar chart, tag cloud, percentage, responsive, chart
 Requires at least: 3
 Tested up to: 3.5
-Stable tag: 1.3
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,9 @@ Yes, you can configure max number of tags; background, text and border color of 
 3. An example of the application in the Twenty Twelve default Wordpress Theme
 
 == Changelog ==
+
+= 1.3.1 =
+* Minor fix
 
 = 1.3 =
 * Admitted empty value for border, background and text color

@@ -2,9 +2,9 @@
 /*
 Plugin Name: Linear Tag Cloud
 Plugin URI: http://www.orangedropdesign.com/
-Description: A tag clob with bars and not dimensions.
+Description: A simple and clean tag cloud with a list of tags in percentual lines.
 Author: Andrea Rufo
-Version: 1.3
+Version: 1.3.1
 Author URI: http://www.orangedropdesign.com/
 
 */
@@ -12,14 +12,14 @@ Author URI: http://www.orangedropdesign.com/
 class ltc_widget extends WP_Widget{
 	
 	public function __construct() {
-		parent::WP_Widget( 'ltc', 'Linear Tag Cloud', array('description' => 'Una tag cloud con le barre'));
+		parent::WP_Widget( 'ltc', 'Linear Tag Cloud', array('description' => 'Setup your new tag-cloud with bars.'));
 	}
 	
 	public function form( $instance ){
         /* Impostazioni di default del widget */
 		$defaults = array( 
             'title' => 'Tag Cloud',
-			'number' => 10,
+			'number' => 6,
 			'border' => '#ccc',
 			'background' => '#eee',
 			'color' => '#000'
