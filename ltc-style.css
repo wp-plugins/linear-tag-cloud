@@ -1,0 +1,19 @@
+
+.linear-tag-cloud{
+}
+
+.linear-tag-cloud li{
+	background:#eee;
+	line-height:24px !important;
+	height:24px !important;
+	border-radius:12px;
+	border:1px solid #ccc;
+	margin:10px 0;
+	overflow:hidden;
+}
+
+.linear-tag-cloud a{
+	padding:0 10px;
+	position:absolute;
+	display:block;
+}
